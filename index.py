@@ -30,7 +30,7 @@ class FirstCmdApplication(cmd.Cmd):
                     \t\t\t\t\t\t\t\t\t for help type help 
                     """
 
-    intri = colored(intr, 'green')
+    intri = colored(intr, 'yellow')
     print(intri)
 
 
