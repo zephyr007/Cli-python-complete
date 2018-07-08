@@ -5,3 +5,4 @@ from .wallpaper import do_wallpaper
 from .quote import do_quote
 from .crypto import do_crypto
 from  .fb_login import login
+from  .instagram import do_insta

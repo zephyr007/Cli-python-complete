@@ -1,5 +1,5 @@
 from package import (
-    do_news,do_quote,do_movie,do_youtube,do_wallpaper,do_crypto,login
+    do_news,do_quote,do_movie,do_youtube,do_wallpaper,do_crypto,login,do_insta
 )
 
 
@@ -30,7 +30,7 @@ class FirstCmdApplication(cmd.Cmd):
                     \t *.youtube video download : download a Video
                     \t *.movie title_movie : for Movie details
                     \t *.crypto: for Crypto Currency prices
-                    \t *.login : facebook login via CMD
+                    \t *.login : facebook and instagram login via CMD
                     \t *.exit
                     \t\t\t\t\t\t\t\t\t for help type help 
                     """
@@ -66,7 +66,11 @@ class FirstCmdApplication(cmd.Cmd):
 
     def do_login(self,arg):
         "facbook login via selenium"
-        login()
+        choice =input("press 1 for facebook login \npress 2 for instagram login\n")
+        if(choice=='1'):
+            login()
+        elif (choice=='2'):
+            do_insta()
 
 
     def do_youtube(self,arg):
