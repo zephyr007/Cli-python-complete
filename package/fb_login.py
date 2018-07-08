@@ -1,12 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import getpass
 
 loc = 'C:\\Users\\dhemi\\PycharmProjects\\Cli-python\\package\\web_driver\\chromedriver.exe'
 
 def login():
     print("\t Enter the facebook credential`s \n")
-    mail = input("\t Enter Email :")
-    passw = input("\n\tEnter the password:")
+    mail = getpass.getuser()
+    passw = getpass.getpass()
     driver = webdriver.Chrome(loc)
     driver.get('https://www.facebook.com/')
     email = driver.find_element_by_name('email')
