@@ -1,10 +1,14 @@
 from package import (
-    do_news,do_quote,do_movie,do_youtube,do_wallpaper,do_crypto
+    do_news,do_quote,do_movie,do_youtube,do_wallpaper,do_crypto,login
 )
 
 
+
+#app = Flask(__name__)
 import cmd
 import sys
+#flask web
+#@app.route("/")
 class FirstCmdApplication(cmd.Cmd):
     try:
         intro = "Welcome {username}!".format(username=sys.argv[1])
@@ -26,6 +30,7 @@ class FirstCmdApplication(cmd.Cmd):
                     \t *.youtube video download : download a Video
                     \t *.movie title_movie : for Movie details
                     \t *.crypto: for Crypto Currency prices
+                    \t *.login : facebook login via CMD
                     \t *.exit
                     \t\t\t\t\t\t\t\t\t for help type help 
                     """
@@ -36,6 +41,32 @@ class FirstCmdApplication(cmd.Cmd):
 
 
     prompt = 'Command: '
+
+    def do_intro(self,arg):
+        from termcolor import colored
+        "display the options"
+        intr = """
+                            --------------------------------------------------------------------------------------------------
+                            \t\t\t\t Welcome to Cli Application
+
+
+                            \t *.news : for News
+                            \t *.quote : for quote of the day
+                            \t *.wallpaper : to display wallpaper
+                            \t *.youtube video download : download a Video
+                            \t *.movie title_movie : for Movie details
+                            \t *.crypto: for Crypto Currency prices
+                            \t *.login : facebook login via CMD
+                            \t *.exit
+                            \t\t\t\t\t\t\t\t\t for help type help 
+                            """
+
+        intrc = colored(intr, 'yellow')
+        print(intrc)
+
+    def do_login(self,arg):
+        "facbook login via selenium"
+        login()
 
 
     def do_youtube(self,arg):
@@ -99,5 +130,8 @@ class FirstCmdApplication(cmd.Cmd):
         print("Exiting...")
         cmd.Cmd.postloop(self)
 
+
+
 if __name__=='__main__':
+
     FirstCmdApplication().cmdloop()

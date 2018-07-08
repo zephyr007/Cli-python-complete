@@ -1,5 +1,6 @@
 import requests
 from pprint import pprint
+from termcolor import colored
 
 info="""
 ------------------------------------------------------------------------------------------

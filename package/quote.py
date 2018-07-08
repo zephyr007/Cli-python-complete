@@ -1,5 +1,5 @@
 import requests
-import sys
+from termcolor import colored
 
 url = ('http://quotes.rest/qod.json')
 
@@ -16,8 +16,8 @@ quote_format = """
 def do_quote():
     response = requests.get(url)
     quote = response.json()
-    content = quote["contents"]["quotes"][0]["quote"]
-    author = quote["contents"]["quotes"][0]["author"]
+    content = colored(quote["contents"]["quotes"][0]["quote"],'green')
+    author = colored(quote["contents"]["quotes"][0]["author"],'blue')
 
     print(quote_format.format(
         quote_body=content,
