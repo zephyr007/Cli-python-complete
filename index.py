@@ -16,7 +16,9 @@ class FirstCmdApplication(cmd.Cmd):
 
     except IndexError:
         print("Please provide your username!")
-        exit()
+        #exit()
+        user = input("Enter username :")
+        intro = "Welcome {username}!".format(username=user)
 
     from termcolor import colored
     intr = """
@@ -31,6 +33,7 @@ class FirstCmdApplication(cmd.Cmd):
                     \t *.movie title_movie : for Movie details
                     \t *.crypto: for Crypto Currency prices
                     \t *.login : facebook and instagram login via CMD
+                    \t *.wiki : execute wikipedia search
                     \t *.exit
                     \t\t\t\t\t\t\t\t\t for help type help 
                     """
@@ -76,6 +79,9 @@ class FirstCmdApplication(cmd.Cmd):
     def do_youtube(self,arg):
         "youtube video"
         do_youtube()
+
+    def do_wiki(self,arg):
+        "execute wikipedia search"
 
     def do_crypto(self,arg):
         "crypto currency price"
